@@ -1,3 +1,4 @@
+mkdir -p "$XDG_DATA_HOME/zsh"
 HISTFILE="$XDG_DATA_HOME/zsh/history"
 HISTSIZE=5000
 SAVEHIST=1000
