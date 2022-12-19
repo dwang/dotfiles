@@ -1,0 +1,6 @@
+export ZDOTDIR=$HOME/.config/zsh
+
+for env_file ("$ZDOTDIR"/env.d/*); do
+  source "$env_file"
+done
+unset env_file
