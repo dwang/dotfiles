@@ -1,0 +1,4 @@
+for config_file ("$ZDOTDIR"/rc.d/*); do
+  source "$config_file"
+done
+unset config_file
