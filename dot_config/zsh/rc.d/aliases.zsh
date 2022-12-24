@@ -1,3 +1,3 @@
-alias mkdir="mkdir -p"
-alias ls="exa"
 alias du="du -hc"
+alias ls="exa"
+alias mkdir="mkdir -p"
