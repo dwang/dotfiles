@@ -11,4 +11,3 @@ zstyle ":completion:*" special-dirs true
 setopt AUTO_MENU
 setopt ALWAYS_TO_END
 setopt COMPLETE_IN_WORD
-
