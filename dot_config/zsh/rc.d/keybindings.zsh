@@ -17,6 +17,6 @@ bindkey -e
 
 bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
 bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
-bindkey "${terminfo[kLFT5]}" beginning-of-line
-bindkey "${terminfo[kRIT5]}" end-of-line
+bindkey "${terminfo[kLFT5]}" backward-word
+bindkey "${terminfo[kRIT5]}" forward-word
 bindkey "${terminfo[kcbt]}" reverse-menu-complete
