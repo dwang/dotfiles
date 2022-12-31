@@ -1,0 +1,36 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+type brew &> /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+brew "bitwarden-cli"
+brew "chezmoi"
+brew "exa"
+brew "jq"
+brew "mas"
+brew "openssl@3"
+brew "readline"
+brew "sqlite"
+brew "tcl-tk"
+brew "wget"
+brew "xz"
+brew "zlib"
+cask "discord"
+cask "docker"
+cask "google-chrome"
+cask "iterm2"
+cask "mpv"
+cask "slack"
+cask "spotify"
+cask "tailscale"
+cask "visual-studio-code"
+cask "zoom"
+mas "GoodNotes", id: 1444383602
+mas "Magnet", id: 441258766
+mas "The Unarchiver", id: 425424353
+EOF
+{{ end -}}
