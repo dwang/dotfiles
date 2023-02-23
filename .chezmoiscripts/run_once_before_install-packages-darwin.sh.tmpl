@@ -2,6 +2,7 @@
 #!/bin/bash
 
 type brew &> /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+type brew &> /dev/null || eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
 tap "homebrew/bundle"
