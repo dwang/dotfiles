@@ -1,3 +1,16 @@
+[".config/pyenv"]
+    type = "archive"
+    url = "https://github.com/pyenv/pyenv/archive/master.tar.gz"
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".config/pyenv/plugins/pyenv-virtualenv"]
+    type = "archive"
+    url = "https://github.com/pyenv/pyenv-virtualenv/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
 [".config/zsh/plugins/pure"]
     type = "archive"
     url = "https://github.com/sindresorhus/pure/archive/master.tar.gz"
