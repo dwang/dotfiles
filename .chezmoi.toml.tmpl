@@ -2,3 +2,11 @@
 
 [data]
     email = {{ $email | quote }}
+
+[hooks.read-source-state.pre]
+    command = ".local/share/chezmoi/.install-password-manager.sh"
+
+{{ if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") -}}
+[onePassword]
+    command = "/opt/homebrew/bin/op"
+{{- end }}
