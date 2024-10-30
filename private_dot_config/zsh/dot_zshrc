@@ -1,5 +1,6 @@
 bindkey -e
 
+alias ls="eza"
 alias mkdir="mkdir -p"
 
 export HISTFILE="$XDG_DATA_HOME/zsh_history"
