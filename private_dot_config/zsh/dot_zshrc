@@ -32,26 +32,46 @@ setopt auto_menu
 setopt always_to_end
 setopt complete_in_word
 
-function zle-line-init() {
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+  function zle-line-init() {
     echoti smkx
-}
-function zle-line-finish() {
+  }
+  function zle-line-finish() {
     echoti rmkx
-}
+  }
+  zle -N zle-line-init
+  zle -N zle-line-finish
+fi
 
 autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-
-zle -N zle-line-init
-zle -N zle-line-finish
 zle -N up-line-or-beginning-search
+
+bindkey "^[[A" up-line-or-beginning-search
+if [[ -n "${terminfo[kcuu1]}" ]]; then
+  bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
+fi
+
+autoload -U down-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
-bindkey "$terminfo[kcuu1]" up-line-or-beginning-search
-bindkey "$terminfo[kcud1]" down-line-or-beginning-search
-bindkey "$terminfo[kLFT5]" backward-word
-bindkey "$terminfo[kRIT5]" forward-word
-bindkey "$terminfo[kcbt]" reverse-menu-complete
+bindkey "^[[B" down-line-or-beginning-search
+if [[ -n "${terminfo[kcud1]}" ]]; then
+  bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
+fi
+
+if [[ -n "${terminfo[kcbt]}" ]]; then
+  bindkey "${terminfo[kcbt]}" reverse-menu-complete
+fi
+
+bindkey "^[[1;5C" forward-word
+if [[ -n "${terminfo[kRIT]}" ]]; then
+  bindkey "${terminfo[kRIT]}" forward-word
+fi
+
+bindkey "^[[1;5D" backward-word
+if [[ -n "${terminfo[kLFT]}" ]]; then
+  bindkey "${terminfo[kLFT]}" backward-word
+fi
 
 setopt no_nomatch
 
