@@ -31,5 +31,6 @@ packages:
     - "tailscale"
     - "visual-studio-code"
     - "windows-app"
+    - "wireshark"
     - "xquartz"
     - "zoom"
