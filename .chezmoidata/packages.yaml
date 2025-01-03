@@ -9,6 +9,7 @@ packages:
     - "htop"
     - "jadx"
     - "jq"
+    - "yq"
     - "openssl"
     - "readline"
     - "sqlite"
@@ -16,6 +17,7 @@ packages:
     - "tmux"
     - "wget"
     - "xz"
+    - "yq"
     - "zlib"
     casks:
     - "1password"
