@@ -1,4 +1,4 @@
 .DS_Store
-.nvmrc
 .python-version
 .vscode/
+mise.local.toml

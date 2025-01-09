@@ -1,0 +1,11 @@
+[tools]
+node = "lts"
+python = "3.13"
+go = "latest"
+uv = "latest"
+
+[settings]
+experimental = true
+
+[settings.python]
+uv_venv_auto = true
