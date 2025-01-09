@@ -10,6 +10,7 @@ packages:
     - "jadx"
     - "jq"
     - "mise"
+    - "starship"
     - "tmux"
     - "wget"
     - "yq"

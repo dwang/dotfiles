@@ -75,9 +75,7 @@ fi
 
 setopt no_nomatch
 
-fpath+=($ZDOTDIR/prompts/pure)
-autoload -U promptinit; promptinit
-prompt pure
+eval "$(starship init zsh)"
 
 source "$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
