@@ -1,14 +1,12 @@
-{{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") -}}
 #!/usr/bin/env bash
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew bundle --no-lock --cleanup --file=/dev/stdin <<EOF
-{{ range .packages.darwin.brews -}}
+{{ range .packages.brews -}}
 brew {{ . | quote }}
 {{ end -}}
-{{ range .packages.darwin.casks -}}
+{{ range .packages.casks -}}
 cask {{ . | quote }}
 {{ end -}}
 EOF
-{{ end -}}

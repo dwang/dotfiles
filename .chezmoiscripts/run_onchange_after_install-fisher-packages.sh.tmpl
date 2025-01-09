@@ -1,8 +1,4 @@
-{{- if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") -}}
 #!/opt/homebrew/bin/fish
-{{ else }}
-#!/usr/bin/env fish
-{{ end -}}
 
 # fish_plugins hash: {{ include "private_dot_config/private_fish/fish_plugins" | sha256sum }}
 

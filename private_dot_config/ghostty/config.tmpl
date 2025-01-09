@@ -2,6 +2,4 @@ theme = "Snazzy Soft"
 macos-titlebar-style = tabs
 window-padding-x = 10
 font-family = "Menlo"
-{{ if and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64") -}}
 command = /opt/homebrew/bin/fish --login --interactive
-{{- end }}
