@@ -1,0 +1,4 @@
+theme = "Snazzy Soft"
+macos-titlebar-style = tabs
+window-padding-x = 10
+font-family = "Menlo"

@@ -23,7 +23,7 @@ packages:
     - "1password-cli"
     - "discord"
     - "google-chrome"
-    - "kitty"
+    - "ghostty"
     - "orbstack"
     - "qbittorrent"
     - "slack"
