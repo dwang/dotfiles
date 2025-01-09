@@ -5,6 +5,7 @@ packages:
     - "exiftool"
     - "eza"
     - "ffmpeg"
+    - "fish"
     - "git"
     - "htop"
     - "jadx"
