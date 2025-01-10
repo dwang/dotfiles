@@ -18,6 +18,6 @@
 [tag]
 	gpgsign = true
 [user]
-	name = Daniel Wang
+	name = {{ .name }}
 	email = {{ .email }}
 	signingkey = {{ (index (gitHubKeys .gitHubUsername) 0).Key }}
