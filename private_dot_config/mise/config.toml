@@ -5,6 +5,7 @@ go = "latest"
 uv = "latest"
 
 [settings]
+disable_hints = ["*"]
 experimental = true
 
 [settings.python]
