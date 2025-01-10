@@ -1,12 +1,8 @@
 {{- $email := promptStringOnce . "email" "Email address" "hello@danielwang.dev" -}}
+{{- $gitHubUsername := promptStringOnce . "gitHubUsername" "GitHub username" "dwang" -}}
 {{- $hostname := promptStringOnce . "hostname" "Hostname" "dwang-mbp" -}}
 
 [data]
     email = {{ $email | quote }}
+    gitHubUsername = {{ $gitHubUsername | quote }}
     hostname = {{ $hostname | quote }}
-
-[hooks.read-source-state.pre]
-    command = ".local/share/chezmoi/.install-password-manager.sh"
-
-[onePassword]
-    command = "/opt/homebrew/bin/op"

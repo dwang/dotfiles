@@ -1,1 +1,1 @@
-{{ .email }} {{ onepasswordRead "op://Personal/id_ed25519/public_key" }}
+{{ .email }} {{ (index (gitHubKeys .gitHubUsername) 0).Key }}
