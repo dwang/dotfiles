@@ -5,6 +5,7 @@ packages:
   - "eza"
   - "ffmpeg"
   - "fish"
+  - "fzf"
   - "git"
   - "htop"
   - "jadx"
