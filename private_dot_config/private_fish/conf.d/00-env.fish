@@ -6,3 +6,4 @@ set -gx XDG_STATE_HOME $HOME/.local/state
 set -gx EDITOR code --wait
 
 set -gx PYTHON_HISTORY $XDG_STATE_HOME/python/history
+set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
