@@ -1,0 +1,18 @@
+[project]
+name = "security"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.12.3",
+    "flask>=3.1.0",
+    "matplotlib>=3.10.0",
+    "numpy>=2.2.1",
+    "pandas>=2.2.3",
+    "pwntools>=4.13.1",
+    "pycryptodome>=3.21.0",
+    "requests>=2.32.3",
+    "scipy>=1.15.0",
+    "sympy>=1.13.3",
+    "tqdm>=4.67.1",
+    "z3-solver>=4.13.4.0",
+]
