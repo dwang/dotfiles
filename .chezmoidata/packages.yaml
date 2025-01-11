@@ -8,6 +8,7 @@ packages:
   - "fzf"
   - "git"
   - "gnu-sed"
+  - "gradle"
   - "htop"
   - "jadx"
   - "jq"
