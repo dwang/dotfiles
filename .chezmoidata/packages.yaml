@@ -20,6 +20,7 @@ packages:
   - "1password-cli"
   - "discord"
   - "google-chrome"
+  - "google-cloud-sdk"
   - "ghidra"
   - "ghostty"
   - "orbstack"
