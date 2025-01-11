@@ -7,6 +7,7 @@ packages:
   - "fish"
   - "fzf"
   - "git"
+  - "gnu-sed"
   - "htop"
   - "jadx"
   - "jq"
