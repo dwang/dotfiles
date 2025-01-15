@@ -1,6 +1,7 @@
 packages:
   brews:
     - "chezmoi"
+    - "doggo"
     - "exiftool"
     - "eza"
     - "ffmpeg"
