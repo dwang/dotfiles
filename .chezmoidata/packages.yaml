@@ -29,6 +29,7 @@ packages:
     - "ghostty"
     - "orbstack"
     - "qbittorrent"
+    - "rar"
     - "slack"
     - "spotify"
     - "stolendata-mpv"
