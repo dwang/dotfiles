@@ -28,12 +28,12 @@ set dockItems \
     /System/Applications/Messages.app \
     /System/Applications/System\ Settings.app \
     /Applications/Windows\ App.app \
+    /Applications/Slack.app \
     /Applications/1Password.app \
     /Applications/Discord.app \
     /Applications/Ghostty.app \
-    /Applications/Google\ Chrome.app \
-    /Applications/Slack.app \
     /Applications/Cursor.app \
+    /Applications/Google\ Chrome.app \
     /Applications/Spotify.app
 for dockItem in $dockItems
     defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$dockItem</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
