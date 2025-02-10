@@ -23,6 +23,7 @@ packages:
   casks:
     - "1password"
     - "1password-cli"
+    - "cursor"
     - "discord"
     - "google-chrome"
     - "google-cloud-sdk"
@@ -36,7 +37,6 @@ packages:
     - "stolendata-mpv"
     - "tailscale"
     - "temurin"
-    - "visual-studio-code"
     - "windows-app"
     - "wireshark"
     - "xquartz"

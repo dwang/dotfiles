@@ -33,7 +33,7 @@ set dockItems \
     /Applications/Ghostty.app \
     /Applications/Google\ Chrome.app \
     /Applications/Slack.app \
-    /Applications/Visual\ Studio\ Code.app \
+    /Applications/Cursor.app \
     /Applications/Spotify.app
 for dockItem in $dockItems
     defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$dockItem</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
