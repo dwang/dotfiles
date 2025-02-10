@@ -12,6 +12,7 @@ packages:
     - "gradle"
     - "helm"
     - "htop"
+    - "imagemagick"
     - "jadx"
     - "jq"
     - "mise"
