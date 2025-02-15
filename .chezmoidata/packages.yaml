@@ -1,6 +1,7 @@
 packages:
   brews:
     - "chezmoi"
+    - "cmake"
     - "doggo"
     - "exiftool"
     - "eza"
