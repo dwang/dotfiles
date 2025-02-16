@@ -6,6 +6,7 @@ packages:
     - "exiftool"
     - "eza"
     - "ffmpeg"
+    - "ffuf"
     - "fish"
     - "fzf"
     - "git"
