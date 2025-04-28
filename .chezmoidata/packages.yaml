@@ -21,6 +21,7 @@ packages:
     - "mise"
     - "p7zip"
     - "pkg-config"
+    - "socat"
     - "starship"
     - "tmux"
     - "wget"
