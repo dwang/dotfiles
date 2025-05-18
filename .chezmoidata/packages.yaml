@@ -1,5 +1,6 @@
 packages:
   brews:
+    - "awscli"
     - "binwalk"
     - "chezmoi"
     - "cmake"
