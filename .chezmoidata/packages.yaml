@@ -36,6 +36,7 @@ packages:
     - "gcloud-cli"
     - "ghidra"
     - "ghostty"
+    - "obsidian"
     - "orbstack"
     - "qbittorrent"
     - "rar"
