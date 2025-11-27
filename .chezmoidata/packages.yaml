@@ -19,6 +19,7 @@ packages:
     - "htop"
     - "imagemagick"
     - "jadx"
+    - "jj"
     - "jq"
     - "mise"
     - "p7zip"
