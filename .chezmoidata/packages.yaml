@@ -23,6 +23,7 @@ packages:
     - "mise"
     - "p7zip"
     - "pkg-config"
+    - "ripgrep"
     - "socat"
     - "starship"
     - "tmux"
