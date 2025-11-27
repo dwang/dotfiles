@@ -28,9 +28,8 @@ packages:
     - "wget"
     - "yq"
   casks:
-    - "1password"
-    - "1password-cli"
     - "amazon-workspaces"
+    - "bitwarden"
     - "discord"
     - "gcloud-cli"
     - "google-chrome"
