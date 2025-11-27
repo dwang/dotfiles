@@ -7,6 +7,7 @@ packages:
     - "doggo"
     - "exiftool"
     - "eza"
+    - "fd"
     - "ffmpeg"
     - "ffuf"
     - "fish"
