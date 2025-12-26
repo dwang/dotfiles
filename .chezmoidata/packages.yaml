@@ -24,6 +24,7 @@ packages:
     - "mise"
     - "p7zip"
     - "pkg-config"
+    - "pnpm"
     - "ripgrep"
     - "socat"
     - "starship"
