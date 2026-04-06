@@ -38,6 +38,7 @@ packages:
     - "gcloud-cli"
     - "google-chrome"
     - "ghostty"
+    - "jellyfin-media-player"
     - "obsidian"
     - "orbstack"
     - "qbittorrent"
