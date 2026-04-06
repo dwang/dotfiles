@@ -1,0 +1,9 @@
+#!/opt/homebrew/bin/fish
+
+! grep -q pam_tid.so /etc/pam.d/sudo && sudo gsed -i "2iauth       sufficient     pam_tid.so" /etc/pam.d/sudo
+
+sudo scutil --set HostName {{ .hostname }}
+sudo scutil --set ComputerName {{ .hostname }}
+sudo scutil --set LocalHostName {{ .hostname }}
+
+sudo nvram StartupMute=%01
