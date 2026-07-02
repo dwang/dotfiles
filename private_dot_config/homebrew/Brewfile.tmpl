@@ -1,0 +1,6 @@
+{{ range .packages.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.casks -}}
+cask {{ . | quote }}
+{{ end -}}
