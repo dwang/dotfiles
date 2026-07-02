@@ -32,7 +32,8 @@ packages:
     - "wget"
     - "yq"
   casks:
-    - "bitwarden"
+    - "1password"
+    - "1password-cli"
     - "codex"
     - "codex-app"
     - "discord"
