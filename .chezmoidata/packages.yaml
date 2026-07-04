@@ -46,6 +46,7 @@ packages:
     - "qbittorrent"
     - "rar"
     - "spotify"
+    - "steam"
     - "stolendata-mpv"
     - "tailscale-app"
     - "visual-studio-code"
