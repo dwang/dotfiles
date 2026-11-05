@@ -35,6 +35,8 @@ packages:
   casks:
     - "1password"
     - "1password-cli"
+    - "antigravity"
+    - "antigravity-cli"
     - "codex"
     - "codex-app"
     - "discord"
