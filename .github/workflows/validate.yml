@@ -9,15 +9,28 @@ on:
 
 jobs:
   validate:
-    runs-on: macos-26
+    strategy:
+      matrix:
+        os: [macos-26, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
     permissions:
       contents: read
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - name: Install chezmoi
+      - name: Install chezmoi (macOS)
+        if: runner.os == 'macOS'
         run: brew install chezmoi
+      - name: Install chezmoi (Linux)
+        if: runner.os == 'Linux'
+        env:
+          CHEZMOI_VERSION: 2.74.1
+          CHEZMOI_SHA256: d63f7a876066f8de992c5a47046049ad569e05d8ab30d8507f123281d7cea15c
+        run: |
+          curl -fsSLo /tmp/chezmoi.deb "https://github.com/twpayne/chezmoi/releases/download/v${CHEZMOI_VERSION}/chezmoi_${CHEZMOI_VERSION}_linux_amd64.deb"
+          printf '%s  /tmp/chezmoi.deb\n' "$CHEZMOI_SHA256" | sha256sum -c -
+          sudo dpkg -i /tmp/chezmoi.deb
       - name: Lint packages
         run: sh .github/scripts/lint-packages.sh
       - name: Dry run chezmoi
