@@ -15,8 +15,6 @@ defaults write com.apple.WindowManager EnableTiledWindowMargins -bool false
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock wvous-br-corner -int 0
-defaults write com.apple.dock persistent-apps -array
-defaults write com.apple.dock persistent-others -array
 set dockItems \
     /System/Applications/Apps.app \
     /System/Applications/Messages.app \
@@ -27,9 +25,12 @@ set dockItems \
     /Applications/Visual\ Studio\ Code.app \
     /Applications/Google\ Chrome.app \
     /Applications/Spotify.app
+set dockArgs
 for dockItem in $dockItems
-    defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$dockItem</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+    set -a dockArgs "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$dockItem</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
 end
+defaults write com.apple.dock persistent-apps -array $dockArgs
+defaults write com.apple.dock persistent-others -array
 
 defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
 defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
@@ -51,4 +52,4 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults -currentHost write "Apple Global Domain" com.apple.mouse.tapBehavior 1
+defaults -currentHost write "Apple Global Domain" com.apple.mouse.tapBehavior -int 1
