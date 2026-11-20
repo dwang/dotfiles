@@ -1,0 +1,23 @@
+[".config/fish/plugins/sponge"]
+    type = "archive"
+    url = "https://github.com/meaningful-ooo/sponge/archive/384299545104d5256648cee9d8b117aaa9a6d7be.tar.gz"
+    checksum.sha256 = "4c489e9547d97bb46fd2e86bf5783c8acb68938ca16c1244592fcb79a9e8b8c5"
+    exact = true
+    stripComponents = 1
+    include = ["*/conf.d/**", "*/functions/**"]
+
+[".config/fish/plugins/puffer-fish"]
+    type = "archive"
+    url = "https://github.com/nickeb96/puffer-fish/archive/83174b07de60078be79985ef6123d903329622b8.tar.gz"
+    checksum.sha256 = "4a13edbc742cc8de8ad12e6a188dca0e94586ad2be9c8b48272b303952df8c9e"
+    exact = true
+    stripComponents = 1
+    include = ["*/conf.d/**", "*/functions/**"]
+
+[".config/fish/plugins/fzf.fish"]
+    type = "archive"
+    url = "https://github.com/patrickf1/fzf.fish/archive/6a6136998879dcc1f29a405dfdd6b92c5f229c39.tar.gz"
+    checksum.sha256 = "c09062ab863d3a1a8e9d147b3f7b2d36d3bdab90e7d61f9a25eaa4b7dd17432f"
+    exact = true
+    stripComponents = 1
+    include = ["*/conf.d/**", "*/functions/**", "*/completions/**"]
