@@ -13,7 +13,6 @@ packages:
     - "fish"
     - "fzf"
     - "git"
-    - "gnu-sed"
     - "gradle"
     - "hashcat"
     - "htop"
