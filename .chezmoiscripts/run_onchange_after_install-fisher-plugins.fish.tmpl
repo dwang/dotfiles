@@ -2,8 +2,8 @@
 
 # fish_plugins hash: {{ include "private_dot_config/private_fish/fish_plugins" | sha256sum }}
 
-if ! type -q fisher
-  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+if not type -q fisher
+    curl -fsSL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source
 end
 
 fisher update
