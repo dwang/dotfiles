@@ -1,4 +1,7 @@
 [tools]
+{{- if eq .chezmoi.os "linux" }}
+chezmoi = "latest"
+{{- end }}
 doggo = "latest"
 eza = "latest"
 fd = "latest"

@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+
+git -C "$CHEZMOI_SOURCE_DIR" remote set-url origin "git@github.com:{{ .gitHubUsername }}/dotfiles.git"

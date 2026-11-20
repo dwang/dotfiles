@@ -3,9 +3,13 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx XDG_STATE_HOME $HOME/.local/state
 
+{{ if eq .chezmoi.os "darwin" -}}
 set -gx EDITOR code --wait
-
+{{ else -}}
+set -gx EDITOR vim
+{{ end }}
 set -gx PYTHON_HISTORY $XDG_STATE_HOME/python/history
+{{ if eq .chezmoi.os "darwin" -}}
 set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 set -gx HOMEBREW_PREFIX /opt/homebrew
@@ -20,7 +24,11 @@ if not set -q INFOPATH
 else if not contains /opt/homebrew/share/info $INFOPATH
     set -gx INFOPATH /opt/homebrew/share/info $INFOPATH
 end
-
+{{ else -}}
+if test -d $HOME/.local/bin
+    fish_add_path -gP $HOME/.local/bin
+end
+{{ end }}
 set -gx MISE_FISH_AUTO_ACTIVATE 0
 if not status is-interactive; and test -d $XDG_DATA_HOME/mise/shims
     fish_add_path -gP $XDG_DATA_HOME/mise/shims

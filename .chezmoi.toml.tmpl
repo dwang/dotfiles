@@ -1,12 +1,17 @@
 {{- $name := promptStringOnce . "name" "Name" "Daniel Wang" -}}
 {{- $email := promptStringOnce . "email" "Email address" "daniel@daniel.wang" -}}
 {{- $gitHubUsername := promptStringOnce . "gitHubUsername" "GitHub username" "dwang" -}}
-{{- $hostname := promptStringOnce . "hostname" "Hostname" "dwang-mbp" -}}
 {{- $signingKey := promptStringOnce . "signingKey" "SSH signing public key" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILR/IZPah7CoIoiv05F9iQLLLFjHJqY683y4qaMf/At9" -}}
+{{- $hostname := "" -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $hostname = promptStringOnce . "hostname" "Hostname" "dwang-mbp" -}}
+{{- end -}}
 
 [data]
     name = {{ $name | quote }}
     email = {{ $email | quote }}
     gitHubUsername = {{ $gitHubUsername | quote }}
-    hostname = {{ $hostname | quote }}
     signingKey = {{ $signingKey | quote }}
+{{- if eq .chezmoi.os "darwin" }}
+    hostname = {{ $hostname | quote }}
+{{- end }}

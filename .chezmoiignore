@@ -1,1 +1,16 @@
 README.md
+{{ if ne .chezmoi.os "darwin" }}
+.chezmoiscripts/00-install-homebrew-packages.sh
+.chezmoiscripts/change_remote_to_ssh.sh
+.chezmoiscripts/setup_macos.fish
+.chezmoiscripts/sync_macos_settings.fish
+.config/ghostty
+.config/homebrew
+.config/mpv
+.ssh
+Downloads
+Library
+{{ end }}
+{{ if ne .chezmoi.os "linux" }}
+.chezmoiscripts/00-install-linux-packages.sh
+{{ end }}

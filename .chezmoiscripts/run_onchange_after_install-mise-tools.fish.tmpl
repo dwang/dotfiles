@@ -1,5 +1,9 @@
+{{- if eq .chezmoi.os "darwin" -}}
 #!/opt/homebrew/bin/fish
+{{- else -}}
+#!/usr/bin/env fish
+{{- end }}
 
-# config.toml hash: {{ include "private_dot_config/mise/config.toml" | sha256sum }}
+# config.toml hash: {{ includeTemplate "private_dot_config/mise/config.toml.tmpl" . | sha256sum }}
 
 mise install --yes

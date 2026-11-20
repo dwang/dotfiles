@@ -16,8 +16,13 @@
 
 [".config/fish/plugins/fzf.fish"]
     type = "archive"
+{{- if eq .chezmoi.os "darwin" }}
     url = "https://github.com/patrickf1/fzf.fish/archive/6a6136998879dcc1f29a405dfdd6b92c5f229c39.tar.gz"
     checksum.sha256 = "c09062ab863d3a1a8e9d147b3f7b2d36d3bdab90e7d61f9a25eaa4b7dd17432f"
+{{- else }}
+    url = "https://github.com/patrickf1/fzf.fish/archive/8920367cf85eee5218cc25a11e209d46e2591e7a.tar.gz"
+    checksum.sha256 = "c512edd54413ae899205f79e7dd185ad60753e664f7998afe0f43ef08e41bac7"
+{{- end }}
     exact = true
     stripComponents = 1
     include = ["*/conf.d/**", "*/functions/**", "*/completions/**"]
