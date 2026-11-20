@@ -1,12 +1,11 @@
 [tools]
 node = "lts"
-python = "3.13"
+python = "3.14"
 go = "latest"
 uv = "latest"
 
 [settings]
 disable_hints = ["*"]
-experimental = true
 
 [settings.python]
 uv_venv_auto = true

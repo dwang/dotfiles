@@ -44,7 +44,7 @@ format = "[$duration]($style) "
 style = "yellow"
 
 [python]
-format = "[$virtualenv]($style) "
+format = "([$virtualenv]($style) )"
 style = "bright-black"
 detect_extensions = []
-detect_files = ["uv.lock"]
+detect_files = []
