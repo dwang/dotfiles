@@ -21,6 +21,6 @@ jobs:
       - name: Lint packages
         run: sh .github/scripts/lint-packages.sh
       - name: Dry run chezmoi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: chezmoi init --promptDefaults --apply -n .
+        run: |
+          chezmoi init --promptDefaults -S .
+          chezmoi apply -S . -n

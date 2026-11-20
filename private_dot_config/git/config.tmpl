@@ -1,7 +1,5 @@
 [commit]
 	gpgsign = true
-[core]
-	excludesfile = ~/.config/git/ignore
 [gpg]
 	format = ssh
 [gpg "ssh"]
@@ -20,4 +18,4 @@
 [user]
 	name = {{ .name }}
 	email = {{ .email }}
-	signingkey = {{ (index (gitHubKeys .gitHubUsername) 0).Key }}
+	signingkey = {{ .signingKey }}

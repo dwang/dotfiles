@@ -1,4 +1,3 @@
 #!/opt/homebrew/bin/fish
 
-cd $CHEZMOI_SOURCE_DIR
-git remote set-url origin git@github.com:{{ .gitHubUsername }}/dotfiles.git
+git -C $CHEZMOI_SOURCE_DIR remote set-url origin git@github.com:{{ .gitHubUsername }}/dotfiles.git

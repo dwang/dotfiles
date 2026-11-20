@@ -1,1 +1,1 @@
-{{ .email }} {{ (index (gitHubKeys .gitHubUsername) 0).Key }}
+{{ .email }} {{ .signingKey }}
