@@ -2,30 +2,36 @@
 
 set -eu
 
-packages_file=".chezmoidata/packages.yaml"
+brewfile="private_dot_config/homebrew/Brewfile"
 status=0
 
-check_sorted() {
-  section="$1"
+check_section() {
+  kind="$1"
+  names="$(awk -v kind="$kind" '$1 == kind { gsub(/"/, "", $2); print $2 }' "$brewfile")"
 
-  if [ "$(yq ".packages.${section} | join(\"\n\") == (sort | join(\"\n\"))" "$packages_file")" != "true" ]; then
-    printf "%s must be alphabetized\n" "$section" >&2
+  if ! printf '%s\n' "$names" | LC_ALL=C sort -c 2>/dev/null; then
+    printf "%ss must be alphabetized\n" "$kind" >&2
+    status=1
+  fi
+
+  if [ "$(printf '%s\n' "$names" | LC_ALL=C sort | wc -l)" -ne "$(printf '%s\n' "$names" | LC_ALL=C sort -u | wc -l)" ]; then
+    printf "%ss contain duplicates\n" "$kind" >&2
     status=1
   fi
 }
 
-check_unique() {
-  section="$1"
+if ! awk '
+  NF == 0 || /^#/ { next }
+  $1 == "brew" && seen_cask { exit 1 }
+  $1 == "cask" { seen_cask = 1 }
+  $1 != "brew" && $1 != "cask" { exit 1 }
+  NF != 2 || $2 !~ /^"[^"]+"$/ { exit 1 }
+' "$brewfile"; then
+  printf "Brewfile must contain only brew entries followed by cask entries\n" >&2
+  status=1
+fi
 
-  if [ "$(yq "(.packages.${section} | length) == (.packages.${section} | unique | length)" "$packages_file")" != "true" ]; then
-    printf "%s contains duplicates\n" "$section" >&2
-    status=1
-  fi
-}
-
-check_sorted brews
-check_sorted casks
-check_unique brews
-check_unique casks
+check_section brew
+check_section cask
 
 exit "$status"
