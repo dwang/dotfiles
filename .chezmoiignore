@@ -8,7 +8,6 @@ README.md
 .config/homebrew
 .config/mpv
 .ssh
-Downloads
 Library
 {{ end }}
 {{ if ne .chezmoi.os "linux" }}
