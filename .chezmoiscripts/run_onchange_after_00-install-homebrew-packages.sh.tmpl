@@ -5,7 +5,8 @@ set -euo pipefail
 
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
-[[ -x "/opt/homebrew/bin/brew" ]] || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# renovate: datasource=github-digest depName=Homebrew/install currentValue=main
+[[ -x "/opt/homebrew/bin/brew" ]] || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/c9c975046f78e6e6d662deb801bd461ebd6a54ed/install.sh)"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 

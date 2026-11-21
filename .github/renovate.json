@@ -1,0 +1,75 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices"
+  ],
+  "minimumReleaseAge": "7 days",
+  "packageRules": [
+    {
+      "groupName": "chezmoi",
+      "matchPackageNames": [
+        "twpayne/chezmoi"
+      ]
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update SHA-pinned GitHub tags in chezmoi externals",
+      "managerFilePatterns": [
+        ".chezmoiexternal.toml.tmpl"
+      ],
+      "matchStrings": [
+        "#\\s*renovate:\\s*datasource=github-tags\\s+depName=(?<depName>[^\\s]+)\\n\\s*url\\s*=\\s*\"https://github\\.com/[^/]+/[^/]+/archive/(?<currentDigest>[a-f0-9]{40})\\.tar\\.gz\"\\s*#\\s*(?<currentValue>[^\\s]+)"
+      ],
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "semver-coerced"
+    },
+    {
+      "customType": "regex",
+      "description": "Update SHA-pinned GitHub branch refs in chezmoi externals",
+      "managerFilePatterns": [
+        ".chezmoiexternal.toml.tmpl"
+      ],
+      "matchStrings": [
+        "#\\s*renovate:\\s*datasource=github-digest\\s+depName=(?<depName>[^\\s]+)\\n\\s*url\\s*=\\s*\"https://github\\.com/[^/]+/[^/]+/archive/(?<currentDigest>[a-f0-9]{40})\\.tar\\.gz\"\\s*#\\s*(?<currentValue>[^\\s]+)"
+      ],
+      "datasourceTemplate": "github-digest"
+    },
+    {
+      "customType": "regex",
+      "description": "Update SHA-pinned chezmoi bootstrap script in README.md",
+      "managerFilePatterns": [
+        "README.md"
+      ],
+      "matchStrings": [
+        "<!--\\s*renovate:\\s*datasource=github-tags\\s+depName=(?<depName>[^\\s]+)\\s+currentValue=(?<currentValue>[^\\s]+)\\s*-->\\n```sh\\nsh -c \"\\$\\(curl -fsLS https://raw\\.githubusercontent\\.com/[^/]+/[^/]+/(?<currentDigest>[a-f0-9]{40})/assets/scripts/install\\.sh\\)\""
+      ],
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "description": "Update chezmoi version in CI workflow",
+      "managerFilePatterns": [
+        ".github/workflows/validate.yml"
+      ],
+      "matchStrings": [
+        "#\\s*renovate:\\s*datasource=github-releases\\s+depName=(?<depName>[^\\s]+)\\n\\s*CHEZMOI_VERSION:\\s*(?<currentValue>[^\\s]+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "description": "Update SHA-pinned Homebrew install script",
+      "managerFilePatterns": [
+        ".chezmoiscripts/run_onchange_after_00-install-homebrew-packages.sh.tmpl"
+      ],
+      "matchStrings": [
+        "#\\s*renovate:\\s*datasource=github-digest\\s+depName=(?<depName>[^\\s]+)\\s+currentValue=(?<currentValue>[^\\s]+)\\n.*https://raw\\.githubusercontent\\.com/[^/]+/[^/]+/(?<currentDigest>[a-f0-9]{40})/install\\.sh"
+      ],
+      "datasourceTemplate": "github-digest"
+    }
+  ]
+}

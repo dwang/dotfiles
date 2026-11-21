@@ -18,19 +18,23 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Install chezmoi (macOS)
         if: runner.os == 'macOS'
         run: brew install chezmoi
       - name: Install chezmoi (Linux)
         if: runner.os == 'Linux'
         env:
-          CHEZMOI_VERSION: 2.74.1
-          CHEZMOI_SHA256: d63f7a876066f8de992c5a47046049ad569e05d8ab30d8507f123281d7cea15c
+          # renovate: datasource=github-releases depName=twpayne/chezmoi
+          CHEZMOI_VERSION: v2.74.1
         run: |
-          curl -fsSLo /tmp/chezmoi.deb "https://github.com/twpayne/chezmoi/releases/download/v${CHEZMOI_VERSION}/chezmoi_${CHEZMOI_VERSION}_linux_amd64.deb"
-          printf '%s  /tmp/chezmoi.deb\n' "$CHEZMOI_SHA256" | sha256sum -c -
-          sudo dpkg -i /tmp/chezmoi.deb
+          ver="${CHEZMOI_VERSION#v}"
+          deb="chezmoi_${ver}_linux_amd64.deb"
+          curl -fsSLo "/tmp/${deb}" "https://github.com/twpayne/chezmoi/releases/download/${CHEZMOI_VERSION}/${deb}"
+          curl -fsSL "https://github.com/twpayne/chezmoi/releases/download/${CHEZMOI_VERSION}/chezmoi_${ver}_checksums.txt" \
+            | awk -v f="$deb" '$2 == f { print $1 "  /tmp/" f }' \
+            | sha256sum -c -
+          sudo dpkg -i "/tmp/${deb}"
       - name: Lint packages
         run: sh .github/scripts/lint-packages.sh
       - name: Dry run chezmoi
